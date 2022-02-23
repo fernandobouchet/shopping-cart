@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cards from "./components/Cards";
+import Cards from "../Cards/Cards";
+import { CardsContainer } from "./ShopStyles";
 
 function Shop() {
   let navigate = useNavigate();
@@ -35,12 +36,12 @@ function Shop() {
     });
 
   return (
-    <>
+    <div>
       <h1>Shop</h1>
-      {ProductsCards}
+      <CardsContainer>{ProductsCards}</CardsContainer>
       <button onClick={() => navigate("/Cart")}>Cart</button>
       <button onClick={() => navigate("/")}>Main Page</button>
-    </>
+    </div>
   );
 }
 
