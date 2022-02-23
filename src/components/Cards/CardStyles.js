@@ -1,12 +1,25 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 10rem;
   padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 10px;
+  transition: all 100ms ease 0s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const ProductImage = styled.img`
   width: 8rem;
+  align-self: center;
 `;
 
 export const ProductTitle = styled.h1`
