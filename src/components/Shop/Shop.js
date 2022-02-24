@@ -26,8 +26,6 @@ function Shop() {
         item.category === "men's clothing" ||
         item.category === "women's clothing"
     );
-    console.log(filteredArray);
-    console.log(array);
     return filteredArray;
   }
 
@@ -39,6 +37,7 @@ function Shop() {
           title={product.title}
           price={product.price}
           image={product.image}
+          rate={product.rating.rate}
           key={product.id}
         />
       );

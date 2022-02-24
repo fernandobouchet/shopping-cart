@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
+  font-family: "Thasadith", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 10rem;
+  background-color: white;
+  width: 15rem;
   padding: 1rem;
   margin: 1rem;
   border-radius: 15px;
