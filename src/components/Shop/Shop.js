@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Cards from "../Cards/Cards";
+import { NavBar } from "../NavBar/NavBar";
 import { CardsContainer } from "./ShopStyles";
 
 function Shop() {
-  let navigate = useNavigate();
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -37,10 +35,8 @@ function Shop() {
 
   return (
     <div>
-      <h1>Shop</h1>
+      <NavBar />
       <CardsContainer>{ProductsCards}</CardsContainer>
-      <button onClick={() => navigate("/Cart")}>Cart</button>
-      <button onClick={() => navigate("/")}>Main Page</button>
     </div>
   );
 }
