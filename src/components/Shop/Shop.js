@@ -14,10 +14,21 @@ function Shop() {
     try {
       const res = await fetch("https://fakestoreapi.com/products");
       const data = await res.json();
-      setProducts(data);
+      setProducts(filterShopProducts(data));
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function filterShopProducts(array) {
+    const filteredArray = array.filter(
+      (item) =>
+        item.category === "men's clothing" ||
+        item.category === "women's clothing"
+    );
+    console.log(filteredArray);
+    console.log(array);
+    return filteredArray;
   }
 
   const ProductsCards =
