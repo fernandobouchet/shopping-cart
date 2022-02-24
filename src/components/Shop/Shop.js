@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards";
-import { NavBar } from "../NavBar/NavBar";
 import { CardsContainer } from "./ShopStyles";
 
 function Shop() {
@@ -45,7 +44,6 @@ function Shop() {
 
   return (
     <div>
-      <NavBar />
       <CardsContainer>{ProductsCards}</CardsContainer>
     </div>
   );
