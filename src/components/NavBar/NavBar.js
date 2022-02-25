@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Nav, ShopTitle, Link } from "./NavBarStyles";
 
-export function NavBar() {
+export function NavBar(props) {
   let navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ export function NavBar() {
       <div>
         <Link href="/Shop">Shop</Link>
         <Link href="/Contact">Contact</Link>
-        <Link cart href="/Cart">
+        <Link onClick={props.setCart}>
           <ion-icon name="cart"></ion-icon>
         </Link>
       </div>

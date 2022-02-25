@@ -10,7 +10,6 @@ export const Card = styled.div`
   padding: 1rem;
   margin: 1rem;
   border-radius: 15px;
-  cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 10px;
   transition: all 100ms ease 0s;
 
@@ -30,4 +29,8 @@ export const ProductTitle = styled.h1`
 
 export const ProductPrice = styled.h2`
   font-size: 1rem;
+`;
+
+export const AddToCartButton = styled.button`
+  cursor: pointer;
 `;

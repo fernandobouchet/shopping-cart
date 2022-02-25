@@ -1,13 +1,21 @@
-import { Card, ProductImage, ProductTitle, ProductPrice } from "./CardStyles";
+import {
+  Card,
+  ProductImage,
+  ProductTitle,
+  ProductPrice,
+  AddToCartButton,
+} from "./CardStyles";
 
 function Cards(props) {
+  const { title, image, price, rate, addItem } = props;
+
   return (
     <Card>
-      <ProductTitle>{props.title}</ProductTitle>
-      <ProductImage src={props.image} alt="" />
-      <ProductPrice>$ {props.price}</ProductPrice>
-      <h2>{props.rate}</h2>
-      <button>Add To Cart</button>
+      <ProductTitle>{title}</ProductTitle>
+      <ProductImage src={image} alt="" />
+      <ProductPrice>$ {price}</ProductPrice>
+      <h2>{rate}</h2>
+      <AddToCartButton onClick={addItem}>Add To Cart</AddToCartButton>
     </Card>
   );
 }
