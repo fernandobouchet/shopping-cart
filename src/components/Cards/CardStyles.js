@@ -23,14 +23,18 @@ export const ProductImage = styled.img`
   align-self: center;
 `;
 
-export const ProductTitle = styled.h1`
+export const ProductInfo = styled.h1`
   font-size: 1rem;
-`;
-
-export const ProductPrice = styled.h2`
-  font-size: 1rem;
+  padding: 1rem;
 `;
 
 export const AddToCartButton = styled.button`
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #171717;
   cursor: pointer;
+  border-radius: 15px;
 `;

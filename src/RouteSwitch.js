@@ -22,7 +22,7 @@ const RouterSwitch = () => {
 
   return (
     <BrowserRouter>
-      <NavBar setCart={changeCartState} />
+      <NavBar setCart={changeCartState} cartProducts={cartProducts} />
       {cart && <Cart setCart={changeCartState} products={cartProducts} />}
       <Routes>
         <Route path="/" element={<Home />} />

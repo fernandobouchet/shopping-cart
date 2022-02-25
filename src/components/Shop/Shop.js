@@ -34,7 +34,6 @@ function Shop(props) {
         title={product.title}
         price={product.price}
         image={product.image}
-        rate={product.rating.rate}
         key={product.id}
         addItem={() => props.addItem({ product })}
       />

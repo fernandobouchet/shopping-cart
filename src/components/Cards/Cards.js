@@ -1,20 +1,13 @@
-import {
-  Card,
-  ProductImage,
-  ProductTitle,
-  ProductPrice,
-  AddToCartButton,
-} from "./CardStyles";
+import { Card, ProductImage, ProductInfo, AddToCartButton } from "./CardStyles";
 
 function Cards(props) {
-  const { title, image, price, rate, addItem } = props;
+  const { title, image, price, addItem } = props;
 
   return (
     <Card>
-      <ProductTitle>{title}</ProductTitle>
+      <ProductInfo>{title}</ProductInfo>
       <ProductImage src={image} alt="" />
-      <ProductPrice>$ {price}</ProductPrice>
-      <h2>{rate}</h2>
+      <ProductInfo>$ {price}</ProductInfo>
       <AddToCartButton onClick={addItem}>Add To Cart</AddToCartButton>
     </Card>
   );
