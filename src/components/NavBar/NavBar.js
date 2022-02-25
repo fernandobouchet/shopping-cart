@@ -1,15 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import { Nav, ShopTitle, Button } from "./NavBarStyles";
+import { Nav, ShopTitle, Link } from "./NavBarStyles";
 
 export function NavBar() {
   let navigate = useNavigate();
 
   return (
     <Nav>
-      <ShopTitle>Fake Store</ShopTitle>
-      <Button onClick={() => navigate("/")}>Home</Button>
-      <Button onClick={() => navigate("/Cart")}>Contact</Button>
-      <Button onClick={() => navigate("/Cart")}>Cart</Button>
+      <div>
+        <ShopTitle onClick={() => navigate("/")}>Fake Store</ShopTitle>
+      </div>
+      <div>
+        <Link href="/Shop">Shop</Link>
+        <Link href="/Contact">Contact</Link>
+        <Link cart href="/Cart">
+          <ion-icon name="cart"></ion-icon>
+        </Link>
+      </div>
     </Nav>
   );
 }

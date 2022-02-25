@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
-import Cart from "./Cart";
+import Contact from "./components/Contact/Contact";
 import { NavBar } from "./components/NavBar/NavBar";
 
 const RouterSwitch = () => {
@@ -11,7 +11,7 @@ const RouterSwitch = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Shop" element={<Shop />} />
-        <Route path="/Cart" element={<Cart />} />
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
