@@ -19,6 +19,12 @@ export const ShopTitle = styled.h1`
   cursor: pointer;
 `;
 
+export const Quantity = styled.span`
+  font-family: "Amiri", serif;
+  color: white;
+  font-size: 1.5rem;
+`;
+
 export const Link = styled.a`
   font-family: "Amiri", serif;
   margin: 0 3rem;

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Nav, ShopTitle, Link } from "./NavBarStyles";
+import { Nav, ShopTitle, Link, Quantity } from "./NavBarStyles";
 
 export function NavBar(props) {
   let navigate = useNavigate();
@@ -14,6 +14,7 @@ export function NavBar(props) {
         <Link href="/Contact">Contact</Link>
         <Link onClick={props.setCart}>
           <ion-icon name="cart"></ion-icon>
+          <Quantity>{props.cartProducts.length}</Quantity>
         </Link>
       </div>
     </Nav>
