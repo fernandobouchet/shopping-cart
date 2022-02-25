@@ -11,6 +11,12 @@ export const Nav = styled.div`
   border-bottom-width: 0.1rem;
   border-color: white;
 `;
+export const NavCointainer = styled.div`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+`;
 
 export const ShopTitle = styled.h1`
   font-family: "Cinzel", serif;

@@ -11,9 +11,11 @@ const RouterSwitch = () => {
   const [cartProducts, setCartProducts] = useState([]);
 
   function addItemToCart(item) {
-    setCartProducts((prevState) => {
-      return [...prevState, item];
-    });
+    if (!cartProducts.includes(item.product)) {
+      setCartProducts((prevState) => {
+        return [...prevState, item.product];
+      });
+    }
   }
 
   function changeCartState() {

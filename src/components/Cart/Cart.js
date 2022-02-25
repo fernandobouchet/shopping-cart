@@ -5,20 +5,18 @@ function Cart(props) {
   const { setCart, products } = props;
 
   const ProductList = products.map((product) => {
-    const items = product.product;
     return (
       <ProductContainer
-        title={items.title}
-        price={items.price}
-        key={items.id}
+        title={product.title}
+        price={product.price}
+        key={product.id}
         quanty={0}
       />
     );
   });
 
-  const Total = products.reduce((a, b) => a + b.product.price, 0).toFixed(2);
+  const Total = products.reduce((a, b) => a + b.price, 0).toFixed(2);
 
-  console.log(Total);
   return (
     <CartContainer>
       <CartModal>
