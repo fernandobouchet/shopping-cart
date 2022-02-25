@@ -25,7 +25,14 @@ function Shop(props) {
         item.category === "men's clothing" ||
         item.category === "women's clothing"
     );
+    addQuantityProperty(filteredArray);
     return filteredArray;
+  }
+
+  function addQuantityProperty(array) {
+    array.forEach((item) => {
+      item.quantity = 1;
+    });
   }
 
   const ProductsCards = products.map((product) => {

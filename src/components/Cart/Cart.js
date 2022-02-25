@@ -10,12 +10,14 @@ function Cart(props) {
         title={product.title}
         price={product.price}
         key={product.id}
-        quanty={0}
+        quantity={product.quantity}
       />
     );
   });
 
-  const Total = products.reduce((a, b) => a + b.price, 0).toFixed(2);
+  const Total = products
+    .reduce((a, b) => a + b.price * b.quantity, 0)
+    .toFixed(2);
 
   return (
     <CartContainer>

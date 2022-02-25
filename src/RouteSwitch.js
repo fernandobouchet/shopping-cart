@@ -9,13 +9,17 @@ import { useState } from "react";
 const RouterSwitch = () => {
   const [cart, setCart] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+  const [cantProducts, setcantProducts] = useState(0);
 
   function addItemToCart(item) {
     if (!cartProducts.includes(item.product)) {
       setCartProducts((prevState) => {
         return [...prevState, item.product];
       });
+    } else {
+      item.product.quantity = item.product.quantity + 1;
     }
+    setcantProducts(cantProducts + 1);
   }
 
   function changeCartState() {
@@ -24,7 +28,7 @@ const RouterSwitch = () => {
 
   return (
     <BrowserRouter>
-      <NavBar setCart={changeCartState} cartProducts={cartProducts} />
+      <NavBar setCart={changeCartState} cantProducts={cantProducts} />
       {cart && <Cart setCart={changeCartState} products={cartProducts} />}
       <Routes>
         <Route path="/" element={<Home />} />

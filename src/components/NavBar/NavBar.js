@@ -15,7 +15,7 @@ export function NavBar(props) {
           <Link href="/Contact">Contact</Link>
           <Link onClick={props.setCart}>
             <ion-icon name="cart"></ion-icon>
-            <Quantity>{props.cartProducts.length}</Quantity>
+            <Quantity>{props.cantProducts}</Quantity>
           </Link>
         </div>
       </Nav>
