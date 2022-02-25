@@ -8,6 +8,13 @@ import { useState } from "react";
 
 const RouterSwitch = () => {
   const [cart, setCart] = useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
+
+  function addItemToCart(item) {
+    setCartProducts((prevState) => {
+      return [...prevState, item];
+    });
+  }
 
   function changeCartState() {
     setCart(!cart);
@@ -16,10 +23,10 @@ const RouterSwitch = () => {
   return (
     <BrowserRouter>
       <NavBar setCart={changeCartState} />
-      {cart && <Cart setCart={changeCartState} />}
+      {cart && <Cart setCart={changeCartState} products={cartProducts} />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Shop" element={<Shop />} />
+        <Route path="/Shop" element={<Shop addItem={addItemToCart} />} />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

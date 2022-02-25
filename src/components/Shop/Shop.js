@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards";
-import { CardsContainer } from "./ShopStyles";
+import { CardsContainer, ShopContainer } from "./ShopStyles";
 
-function Shop() {
+function Shop(props) {
   const [products, setProducts] = useState([]);
-  const [cart, SetCart] = useState([]);
 
   useEffect(() => {
     getApi();
@@ -29,13 +28,6 @@ function Shop() {
     return filteredArray;
   }
 
-  function addItemToCart(item) {
-    SetCart((prevState) => {
-      return [...prevState, item];
-    });
-    console.log(cart);
-  }
-
   const ProductsCards = products.map((product) => {
     return (
       <Cards
@@ -44,16 +36,15 @@ function Shop() {
         image={product.image}
         rate={product.rating.rate}
         key={product.id}
-        addItem={() => addItemToCart({ product })}
-        cart={cart}
+        addItem={() => props.addItem({ product })}
       />
     );
   });
 
   return (
-    <div>
+    <ShopContainer>
       <CardsContainer>{ProductsCards}</CardsContainer>
-    </div>
+    </ShopContainer>
   );
 }
 
