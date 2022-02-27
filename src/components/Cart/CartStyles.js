@@ -25,19 +25,19 @@ export const CartContainer = styled.div`
 export const Product = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: white;
   min-width: 25rem;
   width: auto;
-  padding: 1rem;
+  padding: 0 1rem;
   margin: 0.5rem;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 10px;
+  border-bottom: solid;
+  border-bottom-width: 0.1rem;
 `;
 
 export const TopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -51,9 +51,23 @@ export const ProductInfo = styled.h2`
 
 export const CartInfo = styled.h3`
   font-size: 1.5rem;
+  margin-top: 1rem;
 `;
 
 export const CartTitle = styled.h2`
   font-size: 2rem;
   margin: auto;
+`;
+
+export const CloseButton = styled.button`
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #171717;
+  cursor: pointer;
+  border-radius: 2rem;
+  height: 2rem;
+  width: 2rem;
 `;

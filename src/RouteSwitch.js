@@ -70,14 +70,35 @@ const RouterSwitch = () => {
       );
   }
 
+  function setQuantity(item) {
+    if (item.quantity >= 1)
+      setCartProducts(
+        cartProducts.map((product) => {
+          if (product.id === item.id)
+            return {
+              ...product,
+              quantity: item.quantity,
+            };
+          return product;
+        })
+      );
+  }
+
   function addItemToCart(item) {
-    if (!cartProducts.includes(item) && item.quantity >= 1) {
+    if (
+      !cartProducts.some((product) => product.id === item.id) &&
+      item.quantity >= 1
+    ) {
       setCartProducts((prevState) => {
         return [...prevState, item];
       });
     } else {
-      console.log("already added");
+      setQuantity(item);
     }
+  }
+
+  function removeFromCart(item) {
+    setCartProducts(cartProducts.filter((product) => product.id !== item.id));
   }
 
   function changeCartState() {
@@ -87,7 +108,13 @@ const RouterSwitch = () => {
   return (
     <BrowserRouter>
       <NavBar setCart={changeCartState} cartItemsNumber={cartItemsNumber} />
-      {cart && <Cart setCart={changeCartState} products={cartProducts} />}
+      {cart && (
+        <Cart
+          setCart={changeCartState}
+          products={cartProducts}
+          removeFromCart={removeFromCart}
+        />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

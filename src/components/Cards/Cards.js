@@ -29,7 +29,6 @@ function Cards(props) {
         <Counter>{quantity}</Counter>
         <IncrementButton onClick={increseItemQuantity}>+</IncrementButton>
       </CounterContainer>
-
       <AddToCartButton onClick={addItem}>Add To Cart</AddToCartButton>
     </Card>
   );
