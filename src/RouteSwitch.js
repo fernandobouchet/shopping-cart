@@ -5,6 +5,7 @@ import Contact from "./components/Contact/Contact";
 import Cart from "./components/Cart/Cart";
 import { NavBar } from "./components/NavBar/NavBar";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer/Footer";
 
 const RouterSwitch = () => {
   const [cart, setCart] = useState(false);
@@ -145,6 +146,7 @@ const RouterSwitch = () => {
         />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 };
