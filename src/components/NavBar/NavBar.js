@@ -4,6 +4,8 @@ import { Nav, ShopTitle, Link, Quantity, NavCointainer } from "./NavBarStyles";
 export function NavBar(props) {
   let navigate = useNavigate();
 
+  const { setCart, cartItemsNumber } = props;
+
   return (
     <NavCointainer>
       <Nav>
@@ -13,9 +15,9 @@ export function NavBar(props) {
         <div>
           <Link href="/Shop">Shop</Link>
           <Link href="/Contact">Contact</Link>
-          <Link onClick={props.setCart}>
+          <Link onClick={setCart}>
             <ion-icon name="cart"></ion-icon>
-            <Quantity>{props.cantProducts}</Quantity>
+            <Quantity>{cartItemsNumber}</Quantity>
           </Link>
         </div>
       </Nav>

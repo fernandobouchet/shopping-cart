@@ -4,22 +4,80 @@ import Shop from "./components/Shop/Shop";
 import Contact from "./components/Contact/Contact";
 import Cart from "./components/Cart/Cart";
 import { NavBar } from "./components/NavBar/NavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const RouterSwitch = () => {
   const [cart, setCart] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [cantProducts, setcantProducts] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getApi();
+  }, []);
+
+  const cartItemsNumber = cartProducts.reduce((a, b) => a + b.quantity, 0);
+
+  async function getApi() {
+    try {
+      const res = await fetch("https://fakestoreapi.com/products");
+      const data = await res.json();
+      setProducts(filterShopProducts(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function filterShopProducts(array) {
+    const filteredArray = array.filter(
+      (item) =>
+        item.category === "men's clothing" ||
+        item.category === "women's clothing"
+    );
+    addQuantityProperty(filteredArray);
+    return filteredArray;
+  }
+
+  function addQuantityProperty(array) {
+    array.forEach((item) => {
+      item.quantity = 0;
+    });
+  }
+
+  function increseItemQuantity(item) {
+    setProducts(
+      products.map((product) => {
+        if (product.id === item.id)
+          return {
+            ...product,
+            quantity: item.quantity + 1,
+          };
+        return product;
+      })
+    );
+  }
+
+  function decreseItemQuantity(item) {
+    if (item.quantity >= 1)
+      setProducts(
+        products.map((product) => {
+          if (product.id === item.id)
+            return {
+              ...product,
+              quantity: item.quantity - 1,
+            };
+          return product;
+        })
+      );
+  }
 
   function addItemToCart(item) {
-    if (!cartProducts.includes(item.product)) {
+    if (!cartProducts.includes(item) && item.quantity >= 1) {
       setCartProducts((prevState) => {
-        return [...prevState, item.product];
+        return [...prevState, item];
       });
     } else {
-      item.product.quantity = item.product.quantity + 1;
+      console.log("already added");
     }
-    setcantProducts(cantProducts + 1);
   }
 
   function changeCartState() {
@@ -28,11 +86,21 @@ const RouterSwitch = () => {
 
   return (
     <BrowserRouter>
-      <NavBar setCart={changeCartState} cantProducts={cantProducts} />
+      <NavBar setCart={changeCartState} cartItemsNumber={cartItemsNumber} />
       {cart && <Cart setCart={changeCartState} products={cartProducts} />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Shop" element={<Shop addItem={addItemToCart} />} />
+        <Route
+          path="/Shop"
+          element={
+            <Shop
+              addItem={addItemToCart}
+              products={products}
+              increseItemQuantity={increseItemQuantity}
+              decreseItemQuantity={decreseItemQuantity}
+            />
+          }
+        />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

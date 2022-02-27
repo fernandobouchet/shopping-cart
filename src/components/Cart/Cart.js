@@ -1,4 +1,11 @@
-import { CartModal, CartContainer } from "./CartStyles";
+import {
+  CartModal,
+  CartContainer,
+  CartTitle,
+  CartInfo,
+  TopContainer,
+  BottomContainer,
+} from "./CartStyles";
 import ProductContainer from "./ProductContainer";
 
 function Cart(props) {
@@ -22,10 +29,14 @@ function Cart(props) {
   return (
     <CartContainer>
       <CartModal>
-        <h1>Cart</h1>
-        {ProductList}
-        <h2>Total: $ {Total}</h2>
-        <button onClick={setCart}>Close</button>
+        <TopContainer>
+          <CartTitle>Cart</CartTitle>
+          <button onClick={setCart}>X</button>
+        </TopContainer>
+        <BottomContainer>
+          {ProductList}
+          <CartInfo>Total: $ {Total}</CartInfo>
+        </BottomContainer>
       </CartModal>
     </CartContainer>
   );

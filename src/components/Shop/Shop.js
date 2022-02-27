@@ -1,39 +1,8 @@
-import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards";
 import { CardsContainer, ShopContainer } from "./ShopStyles";
 
 function Shop(props) {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    getApi();
-  }, []);
-
-  async function getApi() {
-    try {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const data = await res.json();
-      setProducts(filterShopProducts(data));
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function filterShopProducts(array) {
-    const filteredArray = array.filter(
-      (item) =>
-        item.category === "men's clothing" ||
-        item.category === "women's clothing"
-    );
-    addQuantityProperty(filteredArray);
-    return filteredArray;
-  }
-
-  function addQuantityProperty(array) {
-    array.forEach((item) => {
-      item.quantity = 1;
-    });
-  }
+  const { products, addItem, increseItemQuantity, decreseItemQuantity } = props;
 
   const ProductsCards = products.map((product) => {
     return (
@@ -42,7 +11,10 @@ function Shop(props) {
         price={product.price}
         image={product.image}
         key={product.id}
-        addItem={() => props.addItem({ product })}
+        addItem={() => addItem(product)}
+        quantity={product.quantity}
+        increseItemQuantity={() => increseItemQuantity(product)}
+        decreseItemQuantity={() => decreseItemQuantity(product)}
       />
     );
   });

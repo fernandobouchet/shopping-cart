@@ -6,9 +6,11 @@ export const CartModal = styled.div`
   width: 30rem;
   height: 30rem;
   border-radius: 15px;
+  padding: 1rem;
 `;
 
 export const CartContainer = styled.div`
+  font-family: "Thasadith", sans-serif;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -21,18 +23,37 @@ export const CartContainer = styled.div`
 `;
 
 export const Product = styled.div`
-  font-family: "Thasadith", sans-serif;
   display: flex;
   justify-content: space-between;
   background-color: white;
   min-width: 25rem;
   width: auto;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0.5rem;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 10px;
 `;
 
+export const TopContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ProductInfo = styled.h2`
   font-size: 1rem;
+`;
+
+export const CartInfo = styled.h3`
+  font-size: 1.5rem;
+`;
+
+export const CartTitle = styled.h2`
+  font-size: 2rem;
+  margin: auto;
 `;
