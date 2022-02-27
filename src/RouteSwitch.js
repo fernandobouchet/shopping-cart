@@ -84,6 +84,20 @@ const RouterSwitch = () => {
       );
   }
 
+  function resetItemQuantity(item) {
+    if (item.quantity >= 1)
+      setProducts(
+        products.map((product) => {
+          if (product.id === item.id)
+            return {
+              ...product,
+              quantity: 0,
+            };
+          return product;
+        })
+      );
+  }
+
   function addItemToCart(item) {
     if (
       !cartProducts.some((product) => product.id === item.id) &&
@@ -99,6 +113,7 @@ const RouterSwitch = () => {
 
   function removeFromCart(item) {
     setCartProducts(cartProducts.filter((product) => product.id !== item.id));
+    resetItemQuantity(item);
   }
 
   function changeCartState() {

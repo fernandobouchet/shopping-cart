@@ -31,6 +31,7 @@ export const Product = styled.div`
   margin: 0.5rem;
   border-bottom: solid;
   border-bottom-width: 0.1rem;
+  align-items: center;
 `;
 
 export const TopContainer = styled.div`
@@ -67,7 +68,8 @@ export const CloseButton = styled.button`
   font-weight: bold;
   background-color: #171717;
   cursor: pointer;
-  border-radius: 2rem;
-  height: 2rem;
-  width: 2rem;
+  border-radius: 1.8rem;
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-bottom: 0.2rem;
 `;
