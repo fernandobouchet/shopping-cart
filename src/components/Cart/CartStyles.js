@@ -7,6 +7,12 @@ export const CartModal = styled.div`
   height: 30rem;
   border-radius: 15px;
   padding: 1rem;
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    width: 20rem;
+    height: 25rem;
+  }
 `;
 
 export const CartContainer = styled.div`
@@ -32,6 +38,11 @@ export const Product = styled.div`
   border-bottom: solid;
   border-bottom-width: 0.1rem;
   align-items: center;
+
+  @media (max-width: 480px) {
+    min-width: 15rem;
+    width: 18rem;
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -48,16 +59,28 @@ export const BottomContainer = styled.div`
 
 export const ProductInfo = styled.h2`
   font-size: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const CartInfo = styled.h3`
   font-size: 1.5rem;
   margin-top: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const CartTitle = styled.h2`
   font-size: 2rem;
   margin: auto;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -72,4 +95,15 @@ export const CloseButton = styled.button`
   height: 1.8rem;
   width: 1.8rem;
   margin-bottom: 0.2rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  > ion-icon {
+    height: 0.9rem;
+    width: 0.9rem;
+  }
 `;

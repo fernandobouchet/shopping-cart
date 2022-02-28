@@ -10,6 +10,10 @@ export const HomeContainer = styled.div`
   background-image: url(${shopImage});
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media (max-width: 480px) {
+    background-position: 50%;
+  }
 `;
 
 export const ShopButton = styled.button`
@@ -45,6 +49,11 @@ export const ShopButton = styled.button`
       transform: scale(1.03);
     }
   }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+    width: 15rem;
+  }
 `;
 
 export const HomeTitle = styled.h1`
@@ -54,4 +63,8 @@ export const HomeTitle = styled.h1`
   border: solid;
   padding: 1rem 2rem;
   backdrop-filter: blur(4px);
+
+  @media (max-width: 480px) {
+    font-size: 3rem;
+  }
 `;

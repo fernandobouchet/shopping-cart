@@ -10,6 +10,10 @@ export const Nav = styled.div`
   border-bottom: solid;
   border-bottom-width: 0.1rem;
   border-color: white;
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
 `;
 export const NavCointainer = styled.div`
   position: fixed;
@@ -23,12 +27,20 @@ export const ShopTitle = styled.h1`
   color: white;
   font-size: 2.5rem;
   cursor: pointer;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Quantity = styled.span`
   font-family: "Amiri", serif;
   color: white;
   font-size: 1.5rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Link = styled.a`
@@ -43,5 +55,15 @@ export const Link = styled.a`
 
   &:hover {
     color: #ffffff79;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  > ion-icon {
+    height: 1rem;
+    margin-bottom: 0.3rem;
   }
 `;
