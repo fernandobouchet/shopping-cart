@@ -13,8 +13,8 @@ export function NavBar(props) {
           <ShopTitle onClick={() => navigate("/")}>Fake Store</ShopTitle>
         </div>
         <div>
-          <Link href="/Shop">Shop</Link>
-          <Link href="/Contact">Contact</Link>
+          <Link onClick={() => navigate("/Shop")}>Shop</Link>
+          <Link onClick={() => navigate("/Contact")}>Contact</Link>
           <Link onClick={setCart}>
             <ion-icon name="cart"></ion-icon>
             <Quantity>{cartItemsNumber}</Quantity>

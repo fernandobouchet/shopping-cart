@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import Contact from "./components/Contact/Contact";
@@ -122,7 +122,7 @@ const RouterSwitch = () => {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar setCart={changeCartState} cartItemsNumber={cartItemsNumber} />
       {cart && (
         <Cart
@@ -147,7 +147,7 @@ const RouterSwitch = () => {
         <Route path="/Contact" element={<Contact />} />
       </Routes>
       <Footer></Footer>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
